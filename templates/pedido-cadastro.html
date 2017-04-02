@@ -1,0 +1,100 @@
+<form ng-submit="salvar(pedido)" name="formPedido" novalidate>
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="form-group">
+                <label for="numero">Número</label>
+                <input type="text" class="form-control" name="numero" placeholder="Número" ng-model="pedido.numero" required>
+                <span ng-if="formPedido.numero.$invalid && formPedido.numero.$dirty">Campo obrigatório</span>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="form-group">
+                <label for="emissao">Emissão</label>
+                <input type="text" class="form-control" name="emissao" placeholder="Emissão" ng-model="pedido.emissao" required>
+                <span ng-if="formPedido.emissao.$invalid && formPedido.emissao.$dirty">Campo obrigatório</span>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="form-group">
+                <label for="totalPedido">Total</label>
+                <input type="text" class="form-control" name="totalPedido" placeholder="Total" ng-model="pedido.totalPedido" disabled>
+                <span ng-if="formPedido.totalPedido.$invalid && formPedido.totalPedido.$dirty">Campo obrigatório</span>
+            </div>
+        </div>
+    </div>
+
+    <hr></hr>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="form-group">
+                <label for="">Encontre um produto</label>
+                <label class="sr-only" for="pesquisaPedido"></label>
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                    <input type="text" class="form-control" id="pesquisaPedido" placeholder="Pesquise um produto">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label for="quantidade">Quantidade</label>
+                <input type="text" class="form-control" name="quantidade" placeholder="Quantidade" ng-model="pedido.quantidade">
+                <span ng-if="formPedido.quantidade.$invalid && formPedido.quantidade.$dirty">Campo obrigatório</span>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label for="preco">Preço</label>
+                <input type="text" class="form-control" name="preco" placeholder="Preço" ng-model="pedido.preco">
+                <span ng-if="formPedido.preco.$invalid && formPedido.preco.$dirty">Campo obrigatório</span>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label for="desconto">Desconto</label>
+                <input type="text" class="form-control" name="desconto" placeholder="Desconto" ng-model="pedido.desconto">
+                <span ng-if="formPedido.desconto.$invalid && formPedido.desconto.$dirty">Campo obrigatório</span>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label for="totalProduto">Total</label>
+                <input type="text" class="form-control" name="totalProduto" placeholder="Total" ng-model="pedido.totalProduto" disabled>
+                <span ng-if="formPedido.totalProduto.$invalid && formPedido.totalProduto.$dirty">Campo obrigatório</span>
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <label for="">Satisfeito?</label>
+            <button type="button" ng-click="adicionarProduto()" class="btn btn-success">Adicionar</button>
+        </div>
+    </div>
+
+    <table class="table table-responsive">
+        <thead>
+            <th>#</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th>Desconto</th>
+            <th>Total</th>
+            <th>Ações</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>0</th>
+                <td>Omo</td>
+                <td>10</td>
+                <td>10.75</td>
+                <td>0.00</td>
+                <td>107.50</td>
+                <td>
+                    <button class="btn btn-danger">Remover</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary" ng-disabled="formPedido.$invalid">Salvar pedido</button>
+    <a href="#/pedidos/listagem" class="btn btn-danger">Cancelar</a>
+</form>

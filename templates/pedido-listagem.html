@@ -1,0 +1,36 @@
+<div class="row">
+    <form ng-submit="teste()">
+        <div class="form-group col-xs-10">
+            <label class="sr-only" for="pesquisa"></label>
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                <input type="text" class="form-control" id="pesquisa" placeholder="Pesquise um pedido">
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <a href="#/pedidos/cadastro" class="btn btn-success">Novo pedido</a>
+        </div>
+    </form>
+</div>
+
+<table class="table table-responsive">
+    <thead>
+        <th>#</th>
+        <th>Número</th>
+        <th>Emissão</th>
+        <th>Total</th>
+        <th>Ações</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in pedidos">
+            <th>0</th>
+            <td>{{item.numero}}</td>
+            <td>{{item.emissao}}</td>
+            <td>{{item.total}}</td>
+            <td>                
+                <button class="btn btn-danger">Excluir</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

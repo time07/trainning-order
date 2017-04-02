@@ -1,0 +1,37 @@
+<div class="row">
+    <form ng-submit="pesquisaProdutos()">
+        <div class="form-group col-xs-10">
+            <label class="sr-only" for="pesquisa"></label>
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                <input type="text" class="form-control" id="pesquisa" placeholder="Pesquise um produto">
+            </div>
+        </div>
+        <div class="col-xs-1">
+            <a href="#/produtos/cadastro" class="btn btn-success">Novo produto</a>
+        </div>
+    </form>
+</div>
+
+<table class="table table-responsive">
+    <thead>
+        <th>#</th>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Ações</th>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="item in produtos">
+            <th>0</th>
+            <td>{{item.codigo}}</td>
+            <td>{{item.desc}}</td>
+            <td>{{item.preco}}</td>
+            <td>
+                <a href="#/produtos/cadastro" class="btn btn-info">Editar</a>
+                <button class="btn btn-danger">Excluir</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
