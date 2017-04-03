@@ -1,0 +1,18 @@
+<div class="" ng-submit="salvarProduto(produto)">
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Código</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Código" required ng-model="produto.codigo">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Descrição</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Descrição" required ng-model="produto.descricao">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Preço</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Preço" required ng-model="produto.preco">
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>
+</div>

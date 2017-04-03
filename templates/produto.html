@@ -1,0 +1,33 @@
+<form class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+        <input type="text" class="form-control" placeholder="Search for...">
+      </div><!-- /input-group -->
+  </div>
+  <a type="submit" href="#/produto/produtoForm" class="btn btn-default">Novo</a>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in produtos">
+        <td>{{produto.codigo}}</td>
+        <td>{{produto.descricao}}</td>
+        <td>{{produto.preco}}</td>
+        <td>
+          <input type="button" name="" value="Excluir" ng-click="">
+          <input type="button" name="" value="Editar">
+        </td>
+      </tr>
+    </tbody>
+  </table>
