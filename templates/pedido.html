@@ -1,1 +1,39 @@
-<h1>Pedido</h1>
+<div class="row">
+  <div class="row">
+    <div class="col-md-6">
+        <div class="input-group">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+        </span>
+        <input type="text" class="form-control" placeholder="Search for...">
+        </div>
+    </div>
+     <div class="col-md-6">
+        <a class="btn btn-success pull-right" href="#/pedido/cadastro" role="button">Novo</a>
+    </div>
+</div>
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Emissão</th>
+        <th>Total</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in listaDePedido">
+        <td>{{x.numero}}</td>
+        <td>{{x.emissao}}</td>
+        <td>{{x.total}}</td>
+        <td>
+          <a type="button" class="btn btn-info" ng-click="edit($index)" href="#/pedido/edit">Editar</a>
+          <a type="button" class="btn btn-danger" ng-click="remove($index)">Excluir</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

@@ -23,7 +23,10 @@ app.config(function($locationProvider,$routeProvider) {
         templateUrl:"/templates/pedido.html",
         controller:"pedidoController"
     })
-    
+    .when('/pedido/cadastro', {
+        templateUrl:"/templates/pedido-cadastro.html",
+        controller:"pedidoController"
+    })
     .otherwise({
         redirectTo: "/"
     });

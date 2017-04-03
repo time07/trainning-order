@@ -1,0 +1,120 @@
+<br><br><br>
+<form class="form-horizontal" name="formularioCadastro" ng-submit="save(produto)" novalidate>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label" for="codigo">Número: </label>
+                <input type="text" name="codigo" class="form-control" id="codigo" ng-model="produto.codigo"
+                    required>
+                <span style="color: red" ng-if="formularioCadastro.codigo.$invalid && formularioCadastro.codigo.$dirty">Atenção, Campo Obrigatório!</span>
+            </div>
+
+            <div class="col-md-4">
+                <label class="control-label" for="descricao">Emissão:</label>
+                <input type="text" name="descricao" class="form-control" id="descricao" ng-model="produto.descricao"
+                    required>
+                <span style="color: red" ng-if="formularioCadastro.descricao.$invalid && formularioCadastro.descricao.$dirty">Atenção, Campo Obrigatório!</span>
+            </div>
+
+            <div class="col-md-4">
+                <label class="control-label" for="preco">Total:</label>
+                <input type="text" name="preco" class="form-control" id="preco"  ng-model="produto.preco"
+                    required>
+                <span style="color: red" ng-if="formularioCadastro.preco.$invalid && formularioCadastro.preco.$dirty">Atenção, Campo Obrigatório!</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label" for="codigo">Codigo: </label>
+                <input type="text" name="codigo" class="form-control" id="codigo"  ng-model="produto.codigo"
+                    required>
+                <span style="color: red" ng-if="formularioCadastro.codigo.$invalid && formularioCadastro.codigo.$dirty">Atenção, Campo Obrigatório!</span>
+            </div>
+
+            <div class="col-md-2">
+                <label class="control-label" for="descricao">Quantidade:</label>
+                <input type="text" name="descricao" class="form-control" id="descricao"  ng-model="produto.descricao"
+                    required>
+                <span style="color: red" ng-if="formularioCadastro.descricao.$invalid && formularioCadastro.descricao.$dirty">Atenção, Campo Obrigatório!</span>
+            </div>
+
+            <div class="col-md-2">
+                <label class="control-label" for="preco">Preço:</label>
+                <input type="text" name="preco" class="form-control" id="preco"  ng-model="produto.preco"
+                    required>
+                <span style="color: red" ng-if="formularioCadastro.preco.$invalid && formularioCadastro.preco.$dirty">Atenção, Campo Obrigatório!</span>
+            </div>
+
+
+            <div class="col-md-2">
+                <label class="control-label" for="preco">Desconto:</label>
+                <input type="text" name="preco" class="form-control" id="preco" ng-model="produto.preco"
+                    required>
+                <span style="color: red" ng-if="formularioCadastro.preco.$invalid && formularioCadastro.preco.$dirty">Atenção, Campo Obrigatório!</span>
+            </div>
+
+
+            <div class="col-md-2">
+                <label class="control-label" for="preco">Total:</label>
+                <input type="text" name="preco" class="form-control" id="preco"  ng-model="produto.preco"
+                    required>
+                <span style="color: red" ng-if="formularioCadastro.preco.$invalid && formularioCadastro.preco.$dirty">Atenção, Campo Obrigatório!</span>
+            </div>
+
+
+            <div class="col-md-2">
+                <a class="btn btn-success pull-right" href="#/pedido/cadastro" role="button">Novo</a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
+                    <th>Desconto</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in listaDeProduto">
+                    <td>{{x.produto}}</td>
+                    <td>{{x.quantidade}}</td>
+                    <td>{{x.preco}}</td>
+                    <td>{{x.desconto}}</td>
+                    <td>{{x.total}}</td>
+                    <td>
+                        <a type="button" class="btn btn-info" ng-click="edit($index)" href="#/pedido/edit">Editar</a>
+                        <a type="button" class="btn btn-danger" ng-click="remove($index)">Excluir</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+            <button type="submit" ng-disabled="formularioCadastro.$invalid" class="btn btn-success">Cadastrar</button>
+            <a href="#/produto" class="btn btn-danger" role="button">Cancelar</a>
+        </div>
+    </div>
+</form>
