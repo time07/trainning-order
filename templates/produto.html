@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="row">
+    <div class="col-md-6">
+        <div class="input-group">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+        </span>
+        <input type="text" class="form-control" placeholder="Search for...">
+        </div>
+    </div>
+     <div class="col-md-6">
+        <a class="btn btn-success pull-right" href="#/produto/cadastro" role="button">Novo</a>
+    </div>
+</div>
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Codigo</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in listaDeProduto">
+        <th scope="row">#</th>
+        <td>{{x.codigo}}</td>
+        <td>{{x.descricao}}</td>
+        <td>{{x.preco}}</td>
+        <td>
+          <a type="button" class="btn btn-info" ng-click="edit($index)" href="#/produto/edit">Editar</a>
+          <a type="button" class="btn btn-danger" ng-click="remove($index)">Excluir</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

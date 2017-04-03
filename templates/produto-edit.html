@@ -1,0 +1,37 @@
+<h1>Editando</h1>
+
+<br><br><br>
+<form class="form-horizontal" name="formularioCadastro" ng-submit="saveEdit(produto)" novalidate>
+  <div class="form-group">
+    <label class="control-label col-md-4" for="codigo">Codigo:</label>
+    <div class="col-md-6">
+      <input type="text" name="codigo" class="form-control" id="codigo" placeholder="Digite o Codigo ..." ng-model="produto.codigo" required>
+       <span style="color: red" ng-if="formularioCadastro.codigo.$invalid && formularioCadastro.codigo.$dirty">Atenção, Campo Obrigatório!</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="descricao">Descrição:</label>
+    <div class="col-md-6">
+      <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Digite a Descrição ..." ng-model="produto.descricao" required>
+      <span style="color: red" ng-if="formularioCadastro.descricao.$invalid && formularioCadastro.descricao.$dirty">Atenção, Campo Obrigatório!</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="preco">Preço:</label>
+    <div class="col-md-6">
+      <input type="text" name="preco" class="form-control" id="preco" placeholder="Digite o Preço ..." ng-model="produto.preco" required>
+       <span style="color: red" ng-if="formularioCadastro.preco.$invalid && formularioCadastro.preco.$dirty">Atenção, Campo Obrigatório!</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-6">
+      
+    </div>
+    <div class="col-md-6">
+      <button type="submit" ng-disabled="formularioCadastro.$invalid" class="btn btn-success">Cadastrar</button>
+    </div>
+  </div>
+</form>
