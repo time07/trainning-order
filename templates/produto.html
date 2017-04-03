@@ -21,12 +21,12 @@
     </thead>
     <tbody>
       <tr ng-repeat="x in produtos">
-        <td>{{produto.codigo}}</td>
-        <td>{{produto.descricao}}</td>
-        <td>{{produto.preco}}</td>
+        <td>{{x.codigo}}</td>
+        <td>{{x.descricao}}</td>
+        <td>{{x.preco}}</td>
         <td>
-          <input type="button" name="" value="Excluir" ng-click="">
-          <input type="button" name="" value="Editar">
+          <input type="button" name="" value="Excluir" ng-click="excluirProduto(x)">
+          <input type="button" name="" value="Editar" ng-click="editarProduto(x)">
         </td>
       </tr>
     </tbody>

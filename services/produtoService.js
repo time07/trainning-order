@@ -1,15 +1,14 @@
 app.factory("produtoService",produtoService);
 
-function produtoService($scope){
-  $scope.produtos = [];
+function produtoService(){
+  var produtos = [];
 
   function salvarProduto(produto){
     produtos.push(produto);
-    location.path('produto');
   }
 
   function excluirProduto(produto){
-    var index = $scope.produto.indexOf();
+    var index = produtos.indexOf(produto);
     produtos.splice(index,1);
   }
 
@@ -17,10 +16,15 @@ function produtoService($scope){
       return produtos;
   }
 
+  function editarProduto(produto){
+
+  }
+
   return{
     salvarProduto:salvarProduto,
     excluirProduto:excluirProduto,
-    getProduto:getProduto
+    getProduto:getProduto,
+    editarProduto:editarProduto
   }
 
 }

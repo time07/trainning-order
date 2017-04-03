@@ -5,6 +5,7 @@ function produtoController(produtoService,$scope,$location){
 
   function salvarProduto(produto){
     produtoService.salvarProduto(produto);
+    $location.path('produto');
   }
 
   function excluirProduto(produto){
@@ -12,7 +13,8 @@ function produtoController(produtoService,$scope,$location){
   }
 
   function listarProdutos(){
-    produtoService.getProduto();
+    var produtos = produtoService.getProduto();
+    $scope.produtos = produtos;
   }
 
   $scope.salvarProduto = salvarProduto;
