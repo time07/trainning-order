@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>Cadatrar produto</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form name="produtoForm" novalidate ng-submit="salvar(produto)">
+        <div class="form-group">
+            <label for="">Código</label>
+            <input type="text" class="form-control" id="" name="codigo" ng-model="produto.codigo" placeholder="Código" required>
+            <span style="color: red" ng-if="produtoForm.codigo.$invalid && produtoForm.codigo.$dirty">Campo obrigatorio</span>
+        </div>
+        <div class="form-group">
+            <label for="">Descrição</label>
+            <input type="text" class="form-control" name="descricao" ng-model="produto.descricao">
+        </div>
+         <div class="form-group">
+            <label for="">Preço</label>
+            <input type="text" class="form-control" id="" placeholder="Preço" name="preco" ng-model="produto.preco">
+        </div>  
+        <button type="submit" class="btn btn-primary" ng-disabled="produtoForm.$invalid" >Salvar</button>
+        </form>
+    </div>
+</div>

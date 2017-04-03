@@ -1,0 +1,40 @@
+<div>
+    <h2>Produtos</h2>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="input-group">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+        </span>
+        <input type="text" class="form-control" placeholder="Pesqusar produto" ng-model="filterProduto">
+        </div>
+    </div>
+     <div class="col-md-6 text-right">
+        <a class="btn btn-success" href="#/produto/cadastrar" role="button">Novo</a>
+    </div>
+</div>
+<br />
+<div class="table-responsive">
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="p in listaDeProdutos | filter:filterProduto">
+        <td>{{p.codigo}}</td>
+        <td>{{p.descricao}}</td>
+        <td>{{p.preco}}</td>
+         <td>
+             <a class="btn btn-info" href="#" role="button">Editar</a>
+             <a class="btn btn-danger" href="#" role="button">Remover</a>
+         </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
