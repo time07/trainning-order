@@ -14,6 +14,10 @@ app.config(function($routeProvider) {
       templateUrl:"templates/produto-form.html",
       controller:"produtoController"
     })
+    .when('/produto/editar',{
+      templateUrl:"templates/produtoEditar.html",
+      controller:"produtoController"
+    })
     .otherwise({
         redirectTo: "/"
     });
