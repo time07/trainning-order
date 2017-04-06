@@ -5,7 +5,7 @@
         <span class="input-group-btn">
             <button class="btn btn-default" type="button">Go!</button>
         </span>
-        <input type="text" class="form-control" placeholder="Search for...">
+        <input type="text" class="form-control" placeholder="Search for..." ng-model="filterProduto">
         </div>
     </div>
      <div class="col-md-6">
@@ -24,7 +24,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="x in listaDeProduto">
+      <tr ng-repeat="x in listaDeProduto | filter:filterProduto">
         <td>{{x.codigo}}</td>
         <td>{{x.descricao}}</td>
         <td>{{x.preco}}</td>
