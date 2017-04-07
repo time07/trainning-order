@@ -2,7 +2,7 @@
     <h2>MANTER PRODUTO</h2>
 
     <br>
-    <input class="form-control" type="text" placeholder="Buscar">
+    <input class="form-control" type="text" placeholder="Buscar" ng-model="filterProduto">
     <br>
 
     <table class="table">
@@ -12,15 +12,14 @@
         <th>Preço</th>
         <th>Ações</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Bola</td>
-        <td>R$ 50,00</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>PC</td>
-        <td>R$ 1.500,00</td>
+    <tr ng-repeat="x in listaDeProdutos | filter: filterProduto">
+        <td>{{ x.codigo }}</td>
+        <td>{{ x.descricao }}</td>
+        <td>{{ x.preco }}</td>
+        <td>
+            <button type="submit" class="btn btn-default" ng-click="edit($index)">Editar</button>
+            <button type="submit" class="btn btn-danger" ng-click="remove($index)">Remover</button>
+        </td>
     </tr>
     </table>
 
