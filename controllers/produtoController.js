@@ -10,21 +10,22 @@ function produtoController($scope, $location, produtoService) {
     getProdutoEdit();
 
     function save(produto) {
-        if (produtoService.save(produto)) {
-            $location.path("produto");
-        } else {
-            console.log('dados invalidos');
+        if(parseInt(produto.codigo) && parseFloat(produto.preco)){
+             produtoService.save(produto);
+             $location.path("produto");
+        }else{
+            alert("Codigo ou Preço invalido!");
         }
     }
 
     function saveEdit(produto){
-        console.log("ae");
         produtoService.saveEdit(produto);
         $location.path("produto");
     }
 
     function edit($index) {
         produtoService.edit($index);
+        $location.path("produto/edit")
     }
 
     function remove($index) {

@@ -6,12 +6,7 @@ function produtoService() {
     var produtoEditIndex;
 
     function save(produto) {
-        if (parseInt(produto.codigo) && parseFloat(produto.preco)) {
-            listaDeProduto.push(produto);
-        } else {
-            return false;
-        }
-        return true;
+        listaDeProduto.push(produto);
     }
 
     function saveEdit(produto) {
@@ -38,11 +33,20 @@ function produtoService() {
         }
     }
 
+    function getByCode(codigoProduto){
+        for(var p in listaDeProduto){
+            if(listaDeProduto[p].codigo === codigoProduto){
+                return listaDeProduto[p];
+            }
+        }
+    }
+
     return {
         save: save,
         remove: remove,
         edit: edit,
         saveEdit: saveEdit,
+        getByCode : getByCode,
         getProdutoEdit: getProdutoEdit,
         getListaDeProduto: getListaDeProduto
     }
