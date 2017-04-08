@@ -17,9 +17,8 @@ function pedidoController($scope, $location, pedidoService, produtoService) {
     }
 
     function getProduto(codigoProduto) {
-        var aux = produtoService.getByCode(codigoProduto);
-        if(aux !== undefined){
-            $scope.novoProduto = aux;
-        }
+        debugger;
+        $scope.novoProduto  = produtoService.getByCode(codigoProduto);
+     
     }
 }
