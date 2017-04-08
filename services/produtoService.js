@@ -2,11 +2,11 @@ app.factory("produtoService", produtoService);
 
 function produtoService() {
     var listaDeProduto = [];
-    var editProduto = {}; 
+    var editProduto = {};
+    var editIndex;
 
     function save(produto) {
         listaDeProduto.push(produto);
-        console.log(listaDeProduto);
     }
 
     function remove(idProduto) {
@@ -15,16 +15,31 @@ function produtoService() {
 
     function edit(idProduto) {
         editProduto = listaDeProduto[idProduto];
+        editIndex = idProduto;
     }
 
     function getLista() {
         return listaDeProduto;
     }
 
+    function getEditProduto() {
+        return {
+            codigo : editProduto.codigo,
+            descricao : editProduto.descricao,
+            preco : editProduto.preco
+        }
+    }
+
+    function saveEdit(produto) {
+        listaDeProduto.splice(editIndex, 1, produto);
+    }
+
     return {
         save: save,
         remove : remove,
         edit : edit,
-        getLista : getLista
+        getLista : getLista,
+        getEditProduto : getEditProduto,
+        saveEdit : saveEdit
     }
 }

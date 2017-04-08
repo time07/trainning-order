@@ -5,7 +5,10 @@ function produtoController($scope, produtoService, $location) {
     $scope.save = save;
     $scope.remove = remove;
     $scope.edit = edit;
+    $scope.saveEdit = saveEdit;
+    
     getLista();
+    getEditProduto();
 
     function save(produto) {
         if (parseInt(produto.codigo) && parseFloat(produto.preco)) {
@@ -25,11 +28,18 @@ function produtoController($scope, produtoService, $location) {
         $location.path("/produto/edit");
     }
 
-    function loadProduto() {
-        $scope.produto = produtoService.edit
-    }
-
     function getLista() {
         $scope.listaDeProdutos = produtoService.getLista();
+    }
+
+    function getEditProduto() {
+        if($location.url() === "/produto/edit") {
+            $scope.produto = produtoService.getEditProduto();
+        }
+    }
+
+    function saveEdit(produto) {
+        produtoService.saveEdit(produto);
+        $location.path("/produto");
     }
 }
