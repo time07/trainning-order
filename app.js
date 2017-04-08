@@ -18,6 +18,10 @@ app.config(function($routeProvider) {
       templateUrl:"templates/produtoEditar.html",
       controller:"produtoController"
     })
+    .when('/pedido',{
+      templateUrl:"templates/pedido.html",
+      controller:"pedidoController"
+    })
     .otherwise({
         redirectTo: "/"
     });
