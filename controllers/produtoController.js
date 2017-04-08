@@ -1,21 +1,36 @@
 app.controller("produtoController", produtoController);
 
-function produtoController($scope, $location, produtoService) {    
+function produtoController($scope, $location, produtoService, $routeParams) {    
     $scope.produto = {};
+    var id = $routeParams.id;
 
-    function salvar(produto) {
+    function save(produto) {
         produtoService.saveProduto(produto);
         $location.path('/produtos/listagem');
     }
 
-    function listar() {
+    function list() {
         var produtos = produtoService.getProdutos();
         console.log(produtos);
         $scope.produtos = produtos;
     }
 
-    listar();
+    function edit(idProduto) {
+        $scope.produto = produtoService.getProduto(idProduto);  
+        console.log($scope.produto);      
+        //produtoService.saveProduto($scope.produto);        
+    }
 
-    $scope.salvar = salvar;
+    function remove(idProduto) {
+        produtoService.remove(idProduto);
+    }
+
+    list();
+    //edit(id);
+    
+
+    $scope.save = save;
+    $scope.edit = edit;
+    $scope.remove = remove;
 
 }

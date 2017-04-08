@@ -4,7 +4,7 @@
             <label class="sr-only" for="pesquisa"></label>
             <div class="input-group">
                 <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-                <input type="text" class="form-control" id="pesquisa" placeholder="Pesquise um pedido">
+                <input type="text" class="form-control" id="pesquisa" placeholder="Pesquise um pedido" ng-model="pesquisaPedido">
             </div>
         </div>
         <div class="col-xs-1">
@@ -15,14 +15,14 @@
 
 <table class="table table-responsive">
     <thead>
-        <th>#</th>
+        <th>0</th>
         <th>Número</th>
         <th>Emissão</th>
         <th>Total</th>
         <th>Ações</th>
     </thead>
     <tbody>
-        <tr ng-repeat="item in pedidos">
+        <tr ng-repeat="item in pedidos | filter:pesquisaPedido">
             <th>0</th>
             <td>{{item.numero}}</td>
             <td>{{item.emissao}}</td>

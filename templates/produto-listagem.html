@@ -28,8 +28,9 @@
             <td>{{item.desc}}</td>
             <td>{{item.preco}}</td>
             <td>
-                <a href="#/produtos/cadastro" class="btn btn-info">Editar</a>
-                <button class="btn btn-danger">Excluir</button>
+                <a ng-href="#/produtos/edicao/{{$index}}" class="btn btn-info">Editar</a>
+                <!--<button ng-click="editar($index)" class="btn btn-info">Editar</a>-->
+                <button class="btn btn-danger" ng-click="remove($index)">Excluir</button>
             </td>
         </tr>
 

@@ -11,6 +11,10 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl:"templates/produto-cadastro.html",
         controller:"produtoController"
     })
+    .when('/produtos/edicao/:id', {
+        templateUrl:"templates/produto-edicao.html",
+        controller:"produtoController"
+    })
     .when('/produtos/listagem', {
         templateUrl:"templates/produto-listagem.html",
         controller:"produtoController"
