@@ -26,6 +26,6 @@ npm install -g bower
 npm install -g http-server
 bower install
 start sh.exe -c "http-server ${PWD}"
-start sh.exe --login -i -c "git pull"
+start sh.exe --login -i
 echo "Finalizado com sucesso!"
 pause
