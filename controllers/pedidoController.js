@@ -10,7 +10,11 @@ function pedidoController($scope, $location, pedidoService, produtoService) {
     var valorTotal;
         
     getListaDePedido();
+    getListaDeItens();
 
+    function getListaDeItens(){
+        $scope.listaDeItens = pedidoService.getListaDeItens();
+    }
 
     function getListaDePedido() {
         $scope.listaDePedido = pedidoService.getListaDePedido();
@@ -18,6 +22,7 @@ function pedidoController($scope, $location, pedidoService, produtoService) {
 
     function gravarItem(produto) {
         pedidoService.gravarItem(produto);
+        $scope.novoProduto = "";
     }
 
     function getProduto(codigoProduto) {
@@ -37,12 +42,11 @@ function pedidoController($scope, $location, pedidoService, produtoService) {
     }
 
     function calcularDesconto(desconto){
+        $scope.novoProduto.total = valorTotal;
         if (desconto > 0 && desconto <= 100){
             var valorDesconto = (desconto / 100) * $scope.novoProduto.total;
             $scope.novoProduto.total = $scope.novoProduto.total - valorDesconto;
-        }else{
-            $scope.novoProduto.total = valorTotal;
-        }        
+        }
     }
 
 }

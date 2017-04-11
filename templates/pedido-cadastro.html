@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-3">
                 <label class="control-label" for="numero">Número: </label>
-                <input type="text" name="numero" class="form-control" id="numero" ng-model="pedidio.numero" required>
+                <input type="text" name="numero" class="form-control" id="numero" ng-model="pedido.numero" required>
                 <span style="color: red" ng-if="formularioCadastro.numero.$invalid && formularioCadastro.numero.$dirty">Atenção, Campo Obrigatório!</span>
             </div>
 
@@ -16,11 +16,11 @@
 
             <div class="col-md-3">
                 <label class="control-label" for="total">Total:</label>
-                <input type="text" name="total" class="form-control" id="total" ng-model="pedido.total" required>
+                <input type="text" name="total" class="form-control" id="total" ng-model="pedido.total" ng-model="pedido.total">                
             </div>
 
             <div class="col-md-3">
-                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modalProduto">Novo Produto</button>
+                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modalProduto">Adicionar Item</button>
             </div>
         </div>
     </div>
@@ -28,7 +28,6 @@
     <!-- Modal -->
     <div id="modalProduto" class="modal fade bs-example-modal-lg" role="dialog">
         <div class="modal-dialog modal-lg">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -36,29 +35,36 @@
                     <h4 class="modal-title">Cadastro de Produto</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-inline">
+                    <form name="formularioItens" class="form-inline" novalidate>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-2">
                                     <label class="control-label" for="codigo">Codigo: </label>
-                                    <input type="text" name="codigo" class="form-control" id="codigo" ng-model="novoProduto.codigo" ng-change="getProduto(novoProduto.codigo)" required>
+                                    <input type="text" name="codigo" class="form-control" id="codigo" ng-model="novoProduto.codigo" ng-change="getProduto(novoProduto.codigo)"
+                                        required>
+                                    <span style="color: red" ng-if="formularioItens.codigo.$invalid && formularioItens.codigo.$dirty">Atenção, Campo Obrigatório!</span>
                                 </div>
 
                                 <div class="col-md-10">
                                     <label class="control-label" for="descricao">Descrição: </label>
-                                    <input type="text" name="descricao" class="form-control" id="descricao" ng-model="novoProduto.descricao" disabled>
+                                    <input type="text" name="descricao" class="form-control" id="descricao" ng-model="novoProduto.descricao" disabled required>
+                                    <span style="color: red" ng-if="formularioItens.descricao.$invalid && formularioItens.descricao.$dirty">Atenção, Campo Obrigatório!</span>
+
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <label class="control-label" for="quantidade">Quantidade:</label>
-                                    <input type="text" name="quantidade" class="form-control" id="quantidade" ng-model="novoProduto.quantidade" ng-change="getTotal(novoProduto.quantidade)" required>
-                                    <span style="color: red" ng-if="formularioCadastro.quantidade.$invalid && formularioCadastro.quantidade.$dirty">Atenção, Campo Obrigatório!</span>
+                                    <input type="text" name="quantidade" class="form-control" id="quantidade" ng-model="novoProduto.quantidade" ng-change="getTotal(novoProduto.quantidade)"
+                                        required>
+                                    <span style="color: red" ng-if="formularioItens.quantidade.$invalid && formularioItens.quantidade.$dirty">Atenção, Campo Obrigatório!</span>
                                 </div>
 
                                 <div class="col-md-3">
                                     <label class="control-label" for="preco">Preço:</label>
-                                    <input type="text" name="preco" class="form-control" id="preco" ng-model="novoProduto.preco" disabled>
+                                    <input type="text" name="preco" class="form-control" id="preco" ng-model="novoProduto.preco" disabled required>
+                                    <span style="color: red" ng-if="formularioItens.preco.$invalid && formularioItens.preco.$dirty">Atenção, Campo Obrigatório!</span>
+
                                 </div>
 
                                 <div class="col-md-3">
@@ -68,18 +74,20 @@
 
                                 <div class="col-md-3">
                                     <label class="control-label" for="total">Total:</label>
-                                    <input type="text" name="total" class="form-control" id="total" ng-model="novoProduto.total" disabled>
+                                    <input type="text" name="total" class="form-control" id="total" ng-model="novoProduto.total" disabled required>
+                                    <span style="color: red" ng-if="formularioItens.total.$invalid && formularioItens.total.$dirty">Atenção, Campo Obrigatório!</span>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" ng-click="gravarItem(novoProduto)" data-dismiss="modal" ng-disabled="formularioItens.$invalid">Confirmar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" ng-click="gravarItem(pedido.produto)" data-dismiss="modal">Confirmar</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                </div>
             </div>
-
         </div>
     </div>
 
@@ -87,7 +95,8 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Produto</th>
+                    <th>Codigo</th>
+                    <th>Descrição</th>
                     <th>Quantidade</th>
                     <th>Preço</th>
                     <th>Desconto</th>
@@ -95,8 +104,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="x in listaDeProduto">
-                    <td>{{x.produto}}</td>
+                <tr ng-repeat="x in listaDeItens">
+                    <td>{{x.codigo}}</td>
+                    <td>{{x.descricao}}</td>
                     <td>{{x.quantidade}}</td>
                     <td>{{x.preco}}</td>
                     <td>{{x.desconto}}</td>
