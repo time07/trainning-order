@@ -19,6 +19,14 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl:"templates/produto-edit.html",
         controller:"produtoController"
     })
+    .when('/pedido', {
+        templateUrl:"templates/pedido.html",
+        controller:"pedidoController"
+    })
+    .when('/pedido/cadastro', {
+        templateUrl:"templates/pedido-form.html",
+        controller:"pedidoController"
+    })
     .otherwise({
         redirectTo: "/"
     });
