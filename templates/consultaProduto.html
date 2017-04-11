@@ -1,0 +1,10 @@
+<form>
+    <h2> Consulta Produtos </h2>
+    <button ng-click="consultarProdutos()">Consultar</button>
+    <div ng-repeat="item in itens track by $index">
+        <h4>Codigo: {{item.id}}</h4>
+        <h4>Nome: {{item.nome}}</h4>
+        <h4>Valor: {{item.valor}}</h4>
+        -----------------------------------
+    </div>
+</form>

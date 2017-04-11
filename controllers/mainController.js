@@ -2,8 +2,9 @@ app.controller("mainController", mainController);
 
 function mainController ($scope) {
     
-	$scope.Nome = "Time07";
+	function callProduto(){
+		
+	}
 
-	$scope.inputText = {};
-	console.log($scope.Nome);
+
 }
