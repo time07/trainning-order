@@ -36,9 +36,12 @@ function produtoService() {
     function getByCode(codigoProduto){
         for(var p in listaDeProduto){
             if(listaDeProduto[p].codigo === codigoProduto){
-                return listaDeProduto[p];
+                return {
+                    codigo: listaDeProduto[p].codigo, descricao: listaDeProduto[p].descricao, preco: listaDeProduto[p].preco
+                }
             }
         }
+        return null;
     }
 
     return {

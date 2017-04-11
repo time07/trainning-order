@@ -52,26 +52,23 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <label class="control-label" for="quantidade">Quantidade:</label>
-                                    <input type="text" name="quantidade" class="form-control" id="quantidade" ng-model="novoProduto.quantidade" required>
+                                    <input type="text" name="quantidade" class="form-control" id="quantidade" ng-model="novoProduto.quantidade" ng-change="getTotal(novoProduto.quantidade)" required>
                                     <span style="color: red" ng-if="formularioCadastro.quantidade.$invalid && formularioCadastro.quantidade.$dirty">Atenção, Campo Obrigatório!</span>
                                 </div>
 
                                 <div class="col-md-3">
                                     <label class="control-label" for="preco">Preço:</label>
-                                    <input type="text" name="preco" class="form-control" id="preco" ng-model="novoProduto.preco" required>
-                                    <span style="color: red" ng-if="formularioCadastro.preco.$invalid && formularioCadastro.preco.$dirty">Atenção, Campo Obrigatório!</span>
+                                    <input type="text" name="preco" class="form-control" id="preco" ng-model="novoProduto.preco" disabled>
                                 </div>
 
                                 <div class="col-md-3">
                                     <label class="control-label" for="desconto">Desconto:</label>
-                                    <input type="text" name="desconto" class="form-control" id="desconto" ng-model="novoProduto.desconto" required>
-                                    <span style="color: red" ng-if="formularioCadastro.desconto.$invalid && formularioCadastro.desconto.$dirty">Atenção, Campo Obrigatório!</span>
+                                    <input type="text" name="desconto" class="form-control" id="desconto" ng-model="novoProduto.desconto" ng-change="calcularDesconto(novoProduto.desconto)">
                                 </div>
 
                                 <div class="col-md-3">
                                     <label class="control-label" for="total">Total:</label>
-                                    <input type="text" name="total" class="form-control" id="total" ng-model="pedido.produto.total" required>
-                                    <span style="color: red" ng-if="formularioCadastro.total.$invalid && formularioCadastro.total.$dirty">Atenção, Campo Obrigatório!</span>
+                                    <input type="text" name="total" class="form-control" id="total" ng-model="novoProduto.total" disabled>
                                 </div>
                             </div>
                         </div>
