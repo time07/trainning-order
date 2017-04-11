@@ -1,5 +1,4 @@
-<h1>Edição de produto</h1>
-<form ng-submit="saveEdit(produto)" name="formProduto" novalidate>
+<form ng-submit="edit(produto)" name="formProduto" novalidate>
     <div class="form-group">
         <label for="codigo">Código</label>
         <input type="text" class="form-control" name="codigo" placeholder="Código" ng-model="produto.codigo" required>
@@ -13,5 +12,5 @@
         <label for="nome">Preço</label>
         <input type="text" class="form-control" id="preco" placeholder="Preço" ng-model="produto.preco">
     </div>
-    <button type="submit" class="btn btn-primary" ng-disabled="formProduto.$invalid">Cadastrar produto</button>
+    <button type="submit" class="btn btn-primary" ng-disabled="formProduto.$invalid">Salvar produto</button>
 </form>

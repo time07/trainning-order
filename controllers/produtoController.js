@@ -1,12 +1,19 @@
 app.controller("produtoController", produtoController);
 
 function produtoController($scope, $location, produtoService, $routeParams) {    
+    var codigo = $routeParams.code;
+    //$scope.title = "Editar";
     $scope.produto = {};
-    var id = $routeParams.id;
 
     function save(produto) {
-        produtoService.saveProduto(produto);
-        $location.path('/produtos/listagem');
+        if(!produto.codigo || !produto.desc || !produto.preco) {
+            alert("Todos os campos devem ser preenchidos.")
+            
+        } else {
+            produtoService.saveProduto(produto);
+            $location.path('/produtos/listagem');
+        }
+        
     }
 
     function list() {
@@ -15,18 +22,21 @@ function produtoController($scope, $location, produtoService, $routeParams) {
         $scope.produtos = produtos;
     }
 
-    function edit(idProduto) {
-        $scope.produto = produtoService.getProduto(idProduto);  
-        console.log($scope.produto);      
-        //produtoService.saveProduto($scope.produto);        
+    function getByCode(codigo) {
+        $scope.produto = produtoService.getByCode(codigo);                
     }
 
-    function remove(idProduto) {
-        produtoService.remove(idProduto);
+    function edit(produto) {
+        produtoService.edit(produto);
+        $location.path('/produtos/listagem');
+    }
+
+    function remove(index) {
+        produtoService.remove(index);
     }
 
     list();
-    //edit(id);
+    getByCode(codigo);
     
 
     $scope.save = save;

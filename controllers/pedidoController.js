@@ -14,7 +14,13 @@ function pedidoController($scope, $location, pedidoService) {
         $scope.pedidos = pedidos;
     }
 
+    function listarNovo() {
+        var novoPedido = pedidoService.getNewPedido();
+        $scope.novosPedidos = novoPedido;
+    }
+
     listar();
+    listarNovo();
 
     $scope.salvar = salvar;
 

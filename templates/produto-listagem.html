@@ -1,10 +1,10 @@
 <div class="row">
     <form ng-submit="pesquisaProdutos()">
         <div class="form-group col-xs-10">
-            <label class="sr-only" for="pesquisa"></label>
+            <label class="sr-only" for="pesquisaProduto"></label>
             <div class="input-group">
                 <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-                <input type="text" class="form-control" id="pesquisa" placeholder="Pesquise um produto">
+                <input type="text" class="form-control" id="pesquisa" ng-model="pesquisaProduto" placeholder="Pesquise um produto">
             </div>
         </div>
         <div class="col-xs-1">
@@ -15,20 +15,18 @@
 
 <table class="table table-responsive">
     <thead>
-        <th>#</th>
         <th>Código</th>
         <th>Descrição</th>
         <th>Preço</th>
         <th>Ações</th>
     </thead>
     <tbody>
-        <tr data-ng-repeat="item in produtos">
-            <th>0</th>
+        <tr data-ng-repeat="item in produtos | filter:pesquisaProduto">
             <td>{{item.codigo}}</td>
             <td>{{item.desc}}</td>
-            <td>{{item.preco}}</td>
+            <td>{{item.preco | currency: 'R$'}}</td>
             <td>
-                <a ng-href="#/produtos/edicao/{{$index}}" class="btn btn-info">Editar</a>
+                <a href="#/produtos/{{item.codigo}}/edicao" class="btn btn-info">Editar</a>
                 <!--<button ng-click="editar($index)" class="btn btn-info">Editar</a>-->
                 <button class="btn btn-danger" ng-click="remove($index)">Excluir</button>
             </td>

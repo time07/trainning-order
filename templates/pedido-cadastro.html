@@ -81,13 +81,13 @@
             <th>Ações</th>
         </thead>
         <tbody>
-            <tr>
-                <th>0</th>
-                <td>Omo</td>
-                <td>10</td>
-                <td>10.75</td>
-                <td>0.00</td>
-                <td>107.50</td>
+            <tr ng-repeat = "item in novosPedidos">
+                <th>{{$index}}</th>
+                <td>{{item.nome}}</td>
+                <td>{{item.quantidade}}</td>
+                <td>{{item.preco | currency: 'R$'}}</td>
+                <td>{{item.desconto | currency: 'R$'}}</td>
+                <td>{{item.total | currency: 'R$'}}</td>
                 <td>
                     <button class="btn btn-danger">Remover</button>
                 </td>

@@ -11,7 +11,7 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl:"templates/produto-cadastro.html",
         controller:"produtoController"
     })
-    .when('/produtos/edicao/:id', {
+    .when('/produtos/:code/edicao', {
         templateUrl:"templates/produto-edicao.html",
         controller:"produtoController"
     })
