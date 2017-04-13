@@ -7,7 +7,8 @@ function produtoController($scope,$location,produtoService){
         function save(produto){
             produtoService.manterProduto(produto);
             console.log("srrsrsdr");
-            $location.path("cadastroProduto");
+            $scope.produto = new produto;
+            $location.path("cadastroProduto ");
         };
         $scope.consultarProdutos = 
         function consultarProdutos(){
