@@ -14,12 +14,16 @@ app.config(function($routeProvider) {
       templateUrl:"templates/produto-form.html",
       controller:"produtoController"
     })
-    .when('/produto/editar',{
-      templateUrl:"templates/produtoEditar.html",
-      controller:"produtoController"
+    .when('/produto/:codigo/editar',{
+      templateUrl:"templates/produto-form.html",
+      controller:"produtoEditarCtrl"
     })
     .when('/pedido',{
       templateUrl:"templates/pedido.html",
+      controller:"pedidoController"
+    })
+    .when('/pedido/pedidoForm',{
+      templateUrl:"templates/pedido-form.html",
       controller:"pedidoController"
     })
     .otherwise({

@@ -16,15 +16,31 @@ function produtoService(){
       return produtos;
   }
 
-  function editarProduto(produto){
+  function getByCode(codigoProduto){
+    var data;
+    for (var p in produtos) {
+      if (codigoProduto === produtos[p].codigo) {
+        data = produtos[p];
+      }
+    }
+    return data;
+  }
 
+  function editarProduto(produto){
+    for (var p in produtos) {
+      if (produto.codigo === produtos[p].codigo) {
+          produtos[p] = angular.copy(produto);
+      }
+    }
+    return true;
   }
 
   return{
     salvarProduto:salvarProduto,
     excluirProduto:excluirProduto,
     getProduto:getProduto,
-    editarProduto:editarProduto
+    editarProduto:editarProduto,
+    getByCode:getByCode
   }
 
 }

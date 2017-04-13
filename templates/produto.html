@@ -1,10 +1,11 @@
 <form class="navbar-form navbar-left" role="search">
+  <h1>PRODUTO</h1>
   <div class="form-group">
     <div class="input-group">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Go!</button>
+          <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span>Procurar</button>
         </span>
-        <input type="text" class="form-control" placeholder="Search for...">
+        <input type="text" class="form-control" placeholder="Produto" ng-model="searchProduto">
       </div><!-- /input-group -->
   </div>
   <a type="submit" href="#/produto/produtoForm" class="btn btn-default">Novo</a>
@@ -20,13 +21,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="x in produtos">
+      <tr ng-repeat="x in produtos | filter:searchProduto ">
         <td>{{x.codigo}}</td>
         <td>{{x.descricao}}</td>
         <td>{{x.preco}}</td>
         <td>
-          <input type="button" name="" value="Excluir" ng-click="excluirProduto(x)">
-          <input type="button" name="" value="Editar" ng-click="editarProduto(x)">
+          <input type="button" name="" value="Excluir" class="btn btn-danger" ng-click="excluirProduto(x)">
+          <a href="#/produto/{{x.codigo}}/editar" class="btn btn-info">Editar</a>
         </td>
       </tr>
     </tbody>
