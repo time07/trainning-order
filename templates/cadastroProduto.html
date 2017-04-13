@@ -1,8 +1,10 @@
 <form name="produtoForm" ng-submit="save(produto)">
     <h2> Cadastro de produto</h2>
-    <script type="javascript/text">
-        produto.id = 0;
-    </script>
+    
+    Codigo:<br>
+    <input type="text" ng-model="produto.id"><br><br>
+
+
     Nome:<br>
     <input type="text" ng-model="produto.nome"><br><br>
 

@@ -5,13 +5,13 @@ function produtoService(){
     prodId=0;
 
     function generateId(){
-        prodId = prodId +1;
+        prodId++;
         return prodId;
     }
-    function manterProduto(produto){        
-        produto.id = generateId();
-        produtos.push("produto");   
-        console.log(produto);
+    function manterProduto(produto){ 
+        //produto.id = generateId();
+        produtos.push(produto);   
+        console.log(produtos);
     }
     function consultarProduto(){
         return produtos;
