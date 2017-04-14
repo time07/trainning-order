@@ -1,6 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2> Consulta Produtos </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="input-group">
+            <span class="input-group-btn">
+            <button class="btn btn-defaul" type="button" ng-click="consultarProdutos()">Consultar</button>            
+            </span>
+            <input type="text" class="form-control" placeholder="Buscar produtos...">
+        </div>
+    </div>
+    <div class="col-md-6 text-right">
+        <a class="btn btn-success" href="/consultaProduto" role="button"> Novo</a>
+    </div>
+</div>
+<br />   
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Preço de Venda</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in listaDeItens">
+                <td>{{item.id}}</td>
+                <td>{{item.nome}}</td>
+                <td>{{item.valor}}</td>
+                <td>
+                    <a class="btn btn-info" href="#/produto/{{item.codigo}}/editar" role="button">Editar</a>
+                    <a class="btn btn-danger" href="javascript:void(0);" ng-click="remover($index)" role="button">Remover</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>         
 <form>
-    <h2> Consulta Produtos </h2>
-    <button ng-click="consultarProdutos()">Consultar</button>
+    
+    
     <div ng-repeat="item in listaDeItens">
         <h4>Codigo: {{item.id}}</h4>
         <h4>Nome: {{item.nome}}</h4>

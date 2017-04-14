@@ -12,14 +12,14 @@ app.config(function($routeProvider,$locationProvider) {
         templateUrl:"templates/cadastroProduto.html",
         controller:"produtoController"
     })
-    .when('/efetuarPedido', {
-        templateUrl:"templates/efetuarPedido.html",
-        controller:"pedidoController"
-    })
-    .when('/consultaProduto', {
+    .when('/produto/:code/editar', {
         templateUrl:"templates/consultaProduto.html",
         controller:"produtoController"
     })
+    .when('/efetuarPedido', {
+        templateUrl:"templates/efetuarPedido.html",
+        controller:"pedidoController"
+    })    
     .when('/consultaPedido', {
         templateUrl:"templates/consultaPedido.html",
         controller:"pedidoController"

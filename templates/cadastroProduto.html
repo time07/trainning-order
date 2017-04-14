@@ -1,15 +1,25 @@
-<form name="produtoForm" ng-submit="save(produto)">
-    <h2> Cadastro de produto</h2>
-    
-    Codigo:<br>
-    <input type="text" ng-model="produto.id"><br><br>
+    <div class="row">
+        <div class="col-md-12">
+            <h2> Cadastro de produto</h2>    
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form name="produtoForm" ng-submit="save(produto)">
+                <div class="form-group">                    
+                   <label for=""> Descrição:</label>   
+                    <input type="text" class="form-control" name="nome" ng-model="produto.nome" placeholder="Nome" required>
+                    <span style="color:red" ng-if="produtoForm.nome.$invalid && produtoForm.nome.$dirt">Campo Obrigatório</span>
+                </div>
 
+                <div class="form-group">                    
+                   <label for=""> Preço de Venda:</label>   
+                    <input type="text" class="form-control" name="valor" ng-model="produto.valor" placeholder="Valor" required>
+                    <span style="color:red" ng-if="produtoForm.valor.$invalid && produtoForm.valor.$dirt">Campo Obrigatório</span>
+                </div>
 
-    Nome:<br>
-    <input type="text" ng-model="produto.nome"><br><br>
-
-    Valor:<br>
-    <input type="number" ng-model="produto.valor"><br><br>
-
-    <button type="submit">Salvar</button>
-</form> 
+                <button type="submit" class="btn btn-primary" ng-disabled="produtoForm.$invalid">Salvar</button>
+            </form>
+        </div>
+    </div>
+     
