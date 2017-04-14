@@ -1,11 +1,14 @@
 <html ng-app="app">
     <head>
         <title>appTime07</title>
+
+
+
     </head>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 <body>
     <nav class="navbar navbar-default">
-  
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -18,15 +21,19 @@
         </li>
           <li><a href="#">Help</a></li>
       </ul>
-      
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 <div class="container">
-    <div ng-view></div>  
+    <div ng-view></div>
 </div>
-        
+
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -37,6 +44,6 @@
     <script src="controllers/pedidoController.js"></script>
     <script src="services/produtoService.js"></script>
     <script src="services/pedidoService.js"> </script>
-    
+
 </body>
 </html>

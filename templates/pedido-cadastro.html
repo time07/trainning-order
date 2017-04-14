@@ -12,6 +12,7 @@
                 <label class="control-label" for="emissao">Emissão:</label>
                 <input type="text" name="emissao" class="form-control" id="descricao" ng-model="pedido.emissao" required>
                 <span style="color: red" ng-if="formularioCadastro.emissao.$invalid && formularioCadastro.emissao.$dirty">Atenção, Campo Obrigatório!</span>
+
             </div>
 
             <div class="col-md-3">
@@ -120,7 +121,7 @@
         <div class="col-md-6">
         </div>
         <div class="col-md-6">
-            <button type="submit" ng-disabled="formularioCadastro.$invalid" class="btn btn-success">Cadastrar</button>
+            <button type="submit" ng-disabled="formularioCadastro.$invalid" class="btn btn-success" ng-click="gravarPedido()">Cadastrar</button>
             <a href="#/produto" class="btn btn-danger" role="button">Cancelar</a>
         </div>
     </div>

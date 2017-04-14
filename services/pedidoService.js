@@ -2,18 +2,17 @@ app.factory('pedidoService', pedidoService);
 
 function pedidoService(){
     var listaDePedido = [];
-    listaDePedido.itens = [];
 
     function getListaDePedido(){
         return listaDePedido;
     }
 
-    function getListaDeItens(){
-        return listaDePedido.itens;
+    function gravarPedido(pedido){
+      listaDePedido.push(pedido);
     }
 
     return {
         getListaDePedido : getListaDePedido,
-        getListaDeItens : getListaDeItens
+        gravarPedido : gravarPedido
     }
 }

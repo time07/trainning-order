@@ -8,15 +8,11 @@ function pedidoController($scope, $location, pedidoService, produtoService) {
     $scope.getProduto = getProduto;
     $scope.getTotal = getTotal;
     $scope.calcularDesconto = calcularDesconto;
+    $scope.gravarPedido = gravarPedido;
 
     var valorTotal;
 
     getListaDePedido();
-    getListaDeItens();
-
-    function getListaDeItens(){
-        $scope.listaDeItens = pedidoService.getListaDeItens();
-    }
 
     function getListaDePedido() {
         $scope.listaDePedido = pedidoService.getListaDePedido();
@@ -57,7 +53,11 @@ function pedidoController($scope, $location, pedidoService, produtoService) {
         total += $scope.pedido.itens[x].total;
       }
       $scope.pedido.total = total;
+    }
 
-  }
+    function gravarPedido(){
+        pedidoService.gravarPedido($scope.pedido);
+        $location.path("pedido");
+    }
 
 }
