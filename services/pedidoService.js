@@ -8,17 +8,12 @@ function pedidoService(){
         return listaDePedido;
     }
 
-    function gravarItem(produto){
-        listaDePedido.itens.push(produto);        
-    }
-
     function getListaDeItens(){
         return listaDePedido.itens;
     }
 
     return {
         getListaDePedido : getListaDePedido,
-        getListaDeItens : getListaDeItens,
-        gravarItem : gravarItem
+        getListaDeItens : getListaDeItens
     }
 }

@@ -16,7 +16,7 @@
 
             <div class="col-md-3">
                 <label class="control-label" for="total">Total:</label>
-                <input type="text" name="total" class="form-control" id="total" ng-model="pedido.total" ng-model="pedido.total">                
+                <input type="text" name="total" class="form-control" id="total" ng-model="pedido.total" ng-model="pedido.total" disabled>
             </div>
 
             <div class="col-md-3">
@@ -41,13 +41,13 @@
                                 <div class="col-md-2">
                                     <label class="control-label" for="codigo">Codigo: </label>
                                     <input type="text" name="codigo" class="form-control" id="codigo" ng-model="novoProduto.codigo" ng-change="getProduto(novoProduto.codigo)"
-                                        required>
-                                    <span style="color: red" ng-if="formularioItens.codigo.$invalid && formularioItens.codigo.$dirty">Atenção, Campo Obrigatório!</span>
+                                        >
+
                                 </div>
 
                                 <div class="col-md-10">
                                     <label class="control-label" for="descricao">Descrição: </label>
-                                    <input type="text" name="descricao" class="form-control" id="descricao" ng-model="novoProduto.descricao" disabled required>
+                                    <input type="text" name="descricao" class="form-control" id="descricao" ng-model="novoProduto.descricao" disabled>
                                     <span style="color: red" ng-if="formularioItens.descricao.$invalid && formularioItens.descricao.$dirty">Atenção, Campo Obrigatório!</span>
 
                                 </div>
@@ -55,16 +55,12 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <label class="control-label" for="quantidade">Quantidade:</label>
-                                    <input type="text" name="quantidade" class="form-control" id="quantidade" ng-model="novoProduto.quantidade" ng-change="getTotal(novoProduto.quantidade)"
-                                        required>
-                                    <span style="color: red" ng-if="formularioItens.quantidade.$invalid && formularioItens.quantidade.$dirty">Atenção, Campo Obrigatório!</span>
+                                    <input type="text" name="quantidade" class="form-control" id="quantidade" ng-model="novoProduto.quantidade" ng-change="getTotal(novoProduto.quantidade)">
                                 </div>
 
                                 <div class="col-md-3">
                                     <label class="control-label" for="preco">Preço:</label>
-                                    <input type="text" name="preco" class="form-control" id="preco" ng-model="novoProduto.preco" disabled required>
-                                    <span style="color: red" ng-if="formularioItens.preco.$invalid && formularioItens.preco.$dirty">Atenção, Campo Obrigatório!</span>
-
+                                    <input type="text" name="preco" class="form-control" id="preco" ng-model="novoProduto.preco" disabled>
                                 </div>
 
                                 <div class="col-md-3">
@@ -74,8 +70,7 @@
 
                                 <div class="col-md-3">
                                     <label class="control-label" for="total">Total:</label>
-                                    <input type="text" name="total" class="form-control" id="total" ng-model="novoProduto.total" disabled required>
-                                    <span style="color: red" ng-if="formularioItens.total.$invalid && formularioItens.total.$dirty">Atenção, Campo Obrigatório!</span>
+                                    <input type="text" name="total" class="form-control" id="total" ng-model="novoProduto.total" disabled>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +99,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="x in listaDeItens">
+                <tr ng-repeat="x in pedido.itens">
                     <td>{{x.codigo}}</td>
                     <td>{{x.descricao}}</td>
                     <td>{{x.quantidade}}</td>
