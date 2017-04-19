@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="col-md-6 text-right">
-        <a class="btn btn-success" href="/consultaProduto" role="button"> Novo</a>
+        <a class="btn btn-success" href="/cadastroProduto" role="button"> Novo</a>
     </div>
 </div>
 <br />
@@ -33,7 +33,7 @@
                 <td>{{item.nome}}</td>
                 <td>{{item.valor}}</td>
                 <td>
-                    <a class="btn btn-info" href="#/produto/item.codigo/editar" role="button">Editar</a>
+                    <a class="btn btn-info" href="#/produto/{{item.codigo}}/editar" role="button">Editar</a>
                     <a class="btn btn-danger" href="javascript:void(0);" ng-click="remover($index)" role="button">Remover</a>
                 </td>
             </tr>

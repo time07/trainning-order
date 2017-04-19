@@ -13,6 +13,11 @@ function produtoService(){
         produtos.push(produto);
         console.log(produtos);
     }
+    function alterarProduto(produto){
+        remover(produto.$index);
+        manterProduto(produto);
+        console.log(produtos);
+    }
     function consultarProduto(){
         return produtos;
     }
@@ -30,6 +35,7 @@ function produtoService(){
     manterProduto: manterProduto,
     consultarProduto: consultarProduto,
     consultarProdutoPorId: consultarProdutoPorId,
-    remover: remover
+    remover: remover,
+    alterarProduto: alterarProduto
  }
 }

@@ -1,12 +1,12 @@
 app.controller("produtoEditController",produtoEditController)
 
-function produtoEditController($scope,$location,produtoService){
+function produtoEditController($scope,$routeParams,$location,produtoService){
         var codigo = $routeParams.code;
 
         $scope.produto = produtoService.consultarProdutoPorId(codigo);
         $scope.save =
         function save(produto){
-            produtoService.manterProduto(produto);
+            produtoService.alterarProduto(produto);
             $location.path("#/consultaProduto");
         };
 };
