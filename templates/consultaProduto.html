@@ -7,7 +7,7 @@
     <div class="col-md-6">
         <div class="input-group">
             <span class="input-group-btn">
-            <button class="btn btn-defaul" type="button" ng-click="consultarProdutos()">Consultar</button>            
+            <button class="btn btn-defaul" type="button" ng-click="consultarProdutos()">Consultar</button>
             </span>
             <input type="text" class="form-control" placeholder="Buscar produtos...">
         </div>
@@ -16,7 +16,7 @@
         <a class="btn btn-success" href="/consultaProduto" role="button"> Novo</a>
     </div>
 </div>
-<br />   
+<br />
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
@@ -33,20 +33,10 @@
                 <td>{{item.nome}}</td>
                 <td>{{item.valor}}</td>
                 <td>
-                    <a class="btn btn-info" href="#/produto/{{item.codigo}}/editar" role="button">Editar</a>
+                    <a class="btn btn-info" href="#/produto/item.codigo/editar" role="button">Editar</a>
                     <a class="btn btn-danger" href="javascript:void(0);" ng-click="remover($index)" role="button">Remover</a>
                 </td>
             </tr>
         </tbody>
     </table>
-</div>         
-<form>
-    
-    
-    <div ng-repeat="item in listaDeItens">
-        <h4>Codigo: {{item.id}}</h4>
-        <h4>Nome: {{item.nome}}</h4>
-        <h4>Valor: {{item.valor}}</h4>
-        -----------------------------------
-    </div>
-</form>
+</div>

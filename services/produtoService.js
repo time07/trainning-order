@@ -8,16 +8,28 @@ function produtoService(){
         prodId++;
         return prodId;
     }
-    function manterProduto(produto){ 
+    function manterProduto(produto){
         //produto.id = generateId();
-        produtos.push(produto);   
+        produtos.push(produto);
         console.log(produtos);
     }
     function consultarProduto(){
         return produtos;
     }
+    function consultarProdutoPorId(Id){
+      for (var produto in produtos) {
+        if (produto.id == Id ) {
+          return produto;
+        }
+      }
+    }
+    function remover(index){
+      produtos.splice(index,1);
+    }
  return{
     manterProduto: manterProduto,
-    consultarProduto: consultarProduto
- }   
+    consultarProduto: consultarProduto,
+    consultarProdutoPorId: consultarProdutoPorId,
+    remover: remover
+ }
 }

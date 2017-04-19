@@ -12,14 +12,18 @@ app.config(function($routeProvider,$locationProvider) {
         templateUrl:"templates/cadastroProduto.html",
         controller:"produtoController"
     })
-    .when('/produto/:code/editar', {
+    .when('/consultaProduto', {
         templateUrl:"templates/consultaProduto.html",
         controller:"produtoController"
+    })
+		.when('/produto/:code/editar', {
+        templateUrl:"templates/cadastroProduto.html",
+        controller:"produtoEditController"
     })
     .when('/efetuarPedido', {
         templateUrl:"templates/efetuarPedido.html",
         controller:"pedidoController"
-    })    
+    })
     .when('/consultaPedido', {
         templateUrl:"templates/consultaPedido.html",
         controller:"pedidoController"
@@ -28,4 +32,3 @@ app.config(function($routeProvider,$locationProvider) {
         redirectTo: "/"
     });
 });
-
